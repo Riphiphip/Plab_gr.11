@@ -5,17 +5,18 @@
 #define LED 13
 
 // this might need to be tuned for different lighting conditions, surfaces, etc.
-#define QTR_THRESHOLD  1500 // microseconds
-#define NUM_SENSORS 6
+#define QTR_THRESHOLD  	  1500 // microseconds
+#define NUM_SENSORS		  6
+#define MASTER_SPEED	  300
 
 // these might need to be tuned for different motor types
-#define REVERSE_SPEED     200 // 0 is stopped, 400 is full speed
+#define REVERSE_SPEED     MASTER_SPEED 				// 0 is stopped, 400 is full speed
 #define TURN_SPEED        200
-#define FORWARD_SPEED     200
-#define FLEE_SPEED		  400
-#define FLEE_DURATION	  500
-#define REVERSE_DURATION  200 // ms
-#define TURN_DURATION     300 // ms
+#define FORWARD_SPEED     MASTER_SPEED
+#define FLEE_SPEED		  2*MASTER_SPEED
+#define FLEE_DURATION	  -1.25*MASTER_SPEED + 750
+#define REVERSE_DURATION  -0.30*MASTER_SPEED + 300 	// ms
+#define TURN_DURATION     300 						// ms
 
 ZumoMotors motors;
 unsigned int sensor_values[NUM_SENSORS];
